@@ -30,15 +30,6 @@ body {
   margin-left: 1rem; /* mx-4, assuming 1 unit = 0.25rem */
   margin-right: 1rem;
 }
-@media (max-width: 768px){
-  .btn{
-    font-size: 10px;
-  }
-
-  .SiteName{
-    font-size: 24px;
-  }
-}
 
 @media (min-width: 768px) {
   body {
@@ -72,7 +63,7 @@ body {
 .SiteName
 {
   font-family: 'JuliosSansOne-regular';
-  font-size: 60px;
+  font-size: 26px;
   font-weight: 10;
   border-bottom: solid 1px black;
 }
