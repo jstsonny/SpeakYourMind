@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="mx-4 md:mx-48 xl:mx-96">
+      <body>
         <QueryWrapper>
           <Nav />
           {children}

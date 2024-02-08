@@ -34,8 +34,8 @@ export default async function handler(
       const newPost = await prisma.post.create({
         data: {
           title,
-          published: false, // Assuming you want to set it as unpublished initially
-          userId: prismaUser.id, // Use the fetched user's ID
+          published: false,
+          userId: prismaUser.id, 
         },
       });
 

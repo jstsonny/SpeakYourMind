@@ -1,15 +1,15 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { PrismaAdapter } from "@next-auth/prisma-adapter"; // Corrected import path
-import prisma from "../../../prisma/client"; // Adjust this import based on your file structure
-import { NextAuthOptions } from "next-auth"; // Correct type import for NextAuth options
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import prisma from "../../../prisma/client";
+import { NextAuthOptions } from "next-auth";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || "", // Fallback to empty string to avoid type error
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "", // Same as above
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
 };

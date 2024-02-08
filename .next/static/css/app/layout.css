@@ -565,9 +565,19 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.fixed {
+  position: fixed;
 }
 .my-4 {
   margin-top: 1rem;
@@ -577,11 +587,17 @@ video {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .flex {
   display: flex;
 }
 .w-14 {
   width: 3.5rem;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 .list-none {
   list-style-type: none;
@@ -607,6 +623,9 @@ video {
 .rounded-full {
   border-radius: 9999px;
 }
+.rounded-lg {
+  border-radius: 0.5rem;
+}
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -617,20 +636,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
 .bg-teal-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(13 148 136 / var(--tw-bg-opacity));
-}
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.p-4 {
-  padding: 1rem;
 }
 .p-8 {
   padding: 2rem;
@@ -647,16 +655,16 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 .font-bold {
   font-weight: 700;
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 .text-gray-700 {
   --tw-text-opacity: 1;
@@ -669,6 +677,17 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap'); 
+@font-face {
+  font-family: 'JuliusSansOne-Regular';
+  src: url(/_next/static/media/JuliusSansOne-Regular.eaf5d3bc.ttf) format('truetype');
 }
 
 :root {
@@ -684,21 +703,74 @@ video {
     --background-end-rgb: 0, 0, 0;
   }
 }
-.disabled\:opacity-25:disabled {
-  opacity: 0.25;
+body {
+  margin-left: 1rem; /* mx-4, assuming 1 unit = 0.25rem */
+  margin-right: 1rem;
 }
-@media (min-width: 768px) {
 
-  .md\:mx-48 {
-    margin-left: 12rem;
+@media (min-width: 768px) {
+  body {
+    margin-left: 12rem; /* md:mx-48, assuming 1 unit = 0.25rem */
     margin-right: 12rem;
   }
 }
-@media (min-width: 1280px) {
 
-  .xl\:mx-96 {
-    margin-left: 24rem;
+@media (min-width: 1280px) {
+  body {
+    margin-left: 24rem; /* xl:mx-96, assuming 1 unit = 0.25rem */
     margin-right: 24rem;
   }
+}
+
+.postformbox{
+  padding: 1rem; /* p-4 equivalent */
+  font-size: 1.125rem; /* text-lg equivalent */
+  border-radius: 0.5rem; /* rounded-md equivalent */
+  background-color: #ffffff; /* bg-gray-200 equivalent */
+  border: 1px solid #ffffff; /* Adds a light border similar to Tailwind's default */
+  transition: border-color 0.2s; /* Smooth transition for border color change */
+}
+
+.postformbox:focus{
+  border-color: #000000;
+  border: 1px solid rgba(140, 140, 140, 0.683);
+  outline: none;
+}
+
+.SiteName
+{
+  font-family: 'JuliosSansOne-regular';
+  font-size: 60px;
+  font-weight: 10;
+  border-bottom: solid 1px black;
+}
+
+.btn{
+font-family: Roboto, sans-serif;
+font-weight: 100;
+font-size: 12px;
+color: #fff;
+background: linear-gradient(90deg, #000000 0%, #858585 100%);
+padding: 10px 30px;
+border: solid #4a4a4a 2px;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 50px;
+transition : 321ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+text-transform: uppercase;
+}
+.btn:hover{
+transition : 321ms;
+padding: 10px 30px;
+background: linear-gradient(90deg, #000000 0%, #858585 100%);
+color: #edf6ff;
+border: solid 2px #d9d9d9;
+}
+.disabled\:opacity-50:disabled {
+  opacity: 0.5;
 }
 

@@ -15,7 +15,7 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
-  content   String?  // Assuming content is optional; remove '?' if it's required
+  content   String?
   published Boolean  @default(false)
   userId    String
   user      User     @relation(fields: [userId], references: [id])

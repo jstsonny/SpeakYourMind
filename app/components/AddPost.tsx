@@ -1,55 +1,68 @@
 'use client'
+
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 export default function CreatePost() {
     const [title, setTitle] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
+    const queryClient = useQueryClient();
 
-    // Set up the mutation
     const { mutate } = useMutation({
         mutationFn: async (newTitle: string) => {
             return await axios.post("/api/posts/addPost", { title: newTitle });
         },
         onMutate: () => {
-            setIsDisabled(true); // Optionally disable the button immediately when mutation starts
+            setIsDisabled(true);
         },
         onSuccess: () => {
-            // Handle successful post creation
             alert("Post created successfully!");
-            setTitle(""); // Clear the title after successful post creation
-            setIsDisabled(false); // Re-enable the button
+            setTitle("");
+            setIsDisabled(false);
+            queryClient.invalidateQueries({
+                queryKey: ["posts"],
+            });
         },
         onError: (error) => {
-            // Handle any error from the post creation process
             console.error("Error creating post:", error);
             alert("Failed to create post.");
-            setIsDisabled(false); // Re-enable the button on error
-        }
+            setIsDisabled(false);
+        },
     });
 
     const submitPost = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        mutate(title); // Correctly pass the title as an argument
+        if (!title.trim()) {
+            alert("Please enter a title for your post.");
+            return;
+        }
+        if (title.length > 300) {
+            alert("Title exceeds the maximum length of 300 characters.");
+            return;
+        }
+        mutate(title);
     };
 
     return (
-        <form onSubmit={submitPost} className="bg-white my-8 p-8 rounded-md">
+        <form onSubmit={submitPost} className="bg-gray-200 my-8 p-8 rounded-md">
             <div className="flex flex-col my-4">
+                <label htmlFor="title" className="sr-only">Title</label>
                 <textarea
+                    id="title"
                     name="title"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    onChange={(e) => setTitle(e.target.value.slice(0, 300))}
                     placeholder="What's on your mind?"
-                    className="p-4 text-lg rounded-md my2 bg-gray-200"
+                    className="postformbox"
+                    aria-label="Post title"
                 ></textarea>
             </div>
             <div className="flex items-center justify-between gap-2">
-                <p className={`font-bold text-sm ${title.length > 300 ? "text-red-700" : "text-gray-700"}`}>{`${title.length}/300`}</p>
+                <p className={`font-bold text-sm ${title.length === 300 ? "text-red-700" : "text-gray-700"}`}>{`${title.length}/300`}</p>
                 <button
-                    disabled={isDisabled}
-                    className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-25"
+                    disabled={isDisabled || title.trim().length === 0}
+                    className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-50 cursor-pointer"
                     type="submit"
                 >
                     Post That Poop

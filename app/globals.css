@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap'); 
+@font-face {
+  font-family: 'JuliusSansOne-Regular';
+  src: url('../public/fonts/JuliusSansOne-Regular.ttf') format('truetype');
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -19,4 +25,71 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+body {
+  margin-left: 1rem; /* mx-4, assuming 1 unit = 0.25rem */
+  margin-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin-left: 12rem; /* md:mx-48, assuming 1 unit = 0.25rem */
+    margin-right: 12rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  body {
+    margin-left: 24rem; /* xl:mx-96, assuming 1 unit = 0.25rem */
+    margin-right: 24rem;
+  }
+}
+
+.postformbox{
+  padding: 1rem; /* p-4 equivalent */
+  font-size: 1.125rem; /* text-lg equivalent */
+  border-radius: 0.5rem; /* rounded-md equivalent */
+  background-color: #ffffff; /* bg-gray-200 equivalent */
+  border: 1px solid #ffffff; /* Adds a light border similar to Tailwind's default */
+  transition: border-color 0.2s; /* Smooth transition for border color change */
+}
+
+.postformbox:focus{
+  border-color: #000000;
+  border: 1px solid rgba(140, 140, 140, 0.683);
+  outline: none;
+}
+
+.SiteName
+{
+  font-family: 'JuliosSansOne-regular';
+  font-size: 60px;
+  font-weight: 10;
+  border-bottom: solid 1px black;
+}
+
+.btn{
+font-family: Roboto, sans-serif;
+font-weight: 100;
+font-size: 12px;
+color: #fff;
+background: linear-gradient(90deg, #000000 0%, #858585 100%);
+padding: 10px 30px;
+border: solid #4a4a4a 2px;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 50px;
+transition : 321ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+text-transform: uppercase;
+}
+.btn:hover{
+transition : 321ms;
+padding: 10px 30px;
+background: linear-gradient(90deg, #000000 0%, #858585 100%);
+color: #edf6ff;
+border: solid 2px #d9d9d9;
 }
