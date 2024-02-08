@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/sonnytajvarjahanara/Desktop/GitHub/fit-app/fit-app/app/layout\":[\"static/media/7d8c9b0ca4a64a5a-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/sonnytajvarjahanara/Desktop/fit-app/fit-app/app/layout\":[\"static/media/7d8c9b0ca4a64a5a-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
