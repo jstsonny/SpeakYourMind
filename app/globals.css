@@ -30,6 +30,15 @@ body {
   margin-left: 1rem; /* mx-4, assuming 1 unit = 0.25rem */
   margin-right: 1rem;
 }
+@media (max-width: 768px){
+  .btn{
+    font-size: 10px;
+  }
+
+  .SiteName{
+    font-size: 24px;
+  }
+}
 
 @media (min-width: 768px) {
   body {
