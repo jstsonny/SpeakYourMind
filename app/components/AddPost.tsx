@@ -37,8 +37,8 @@ export default function CreatePost() {
             alert("Please enter a title for your post.");
             return;
         }
-        if (title.length > 300) {
-            alert("Title exceeds the maximum length of 300 characters.");
+        if (title.length > 600) {
+            alert("Title exceeds the maximum length of 600 characters.");
             return;
         }
         mutate(title);
@@ -52,14 +52,14 @@ export default function CreatePost() {
                     id="title"
                     name="title"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value.slice(0, 300))}
+                    onChange={(e) => setTitle(e.target.value.slice(0, 600))}
                     placeholder="What's on your mind?"
                     className="postformbox"
                     aria-label="Post title"
                 ></textarea>
             </div>
             <div className="flex items-center justify-between gap-2">
-                <p className={`font-bold text-sm ${title.length === 300 ? "text-red-700" : "text-gray-700"}`}>{`${title.length}/300`}</p>
+                <p className={`font-bold text-sm ${title.length === 600 ? "text-red-700" : "text-gray-700"}`}>{`${title.length}/600`}</p>
                 <button
                     disabled={isDisabled || title.trim().length === 0}
                     className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-50 cursor-pointer"

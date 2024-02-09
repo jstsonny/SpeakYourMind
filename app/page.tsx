@@ -4,6 +4,7 @@ import axios from "axios"
 import AddPost from './components/AddPost'
 import Post from './components/Post';
 import { useQuery } from "@tanstack/react-query"
+import { DateTime } from "next-auth/providers/kakao";
 
 interface User {
   name: string;
@@ -14,6 +15,7 @@ interface PostData {
   id: string;
   title: string;
   user: User;
+  createdAt: DateTime;
 }
 
 
@@ -42,6 +44,7 @@ export default function Home() {
           avatar={post.user?.image || '/default-avatar.png'}
           postTitle={post.title}
           id={post.id}
+          CreatedAt={post.createdAt}
         />
       ))}
     </main>

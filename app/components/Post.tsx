@@ -1,5 +1,6 @@
 'use client'
 
+import { DateTime } from "next-auth/providers/kakao";
 import Image from "next/image"
 import Link from "next/link"
 
@@ -8,9 +9,13 @@ interface PostProps {
     avatar: string;
     name: string;
     postTitle: string;
+    CreatedAt: DateTime;
 }
 
-export default function Post({ avatar, name, postTitle, id }: PostProps) {
+export default function Post({ avatar, name, postTitle, id, CreatedAt }: PostProps) {
+    const date = new Date(CreatedAt);
+    const localDateString = date.toLocaleString(); //use browser timezone
+
     return (
         <div className="bg-gray-200 my-8 p-8 rounded-lg shadow">
             <div className="flex items-center gap-2 mb-4">
@@ -23,6 +28,7 @@ export default function Post({ avatar, name, postTitle, id }: PostProps) {
                     layout="fixed"
                 />
                 <h3 className="font-bold text-gray-700">{name}</h3>
+                <p className="text-sm text-black">{localDateString}</p>
             </div>
             <div className="text-gray-600">{postTitle}</div>
             <Link href={`/post/${id}`} passHref>
