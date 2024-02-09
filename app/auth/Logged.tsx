@@ -9,7 +9,7 @@ export default function Logged({image}: User){
     return(
         <li className="flex gap-8 items-center">
             <button onClick={() => signOut()} className="btn">Sign Out</button>
-            <Link href={"/dashboard"}>
+            <Link href={"/"}>
                 <Image 
                     width={64} 
                     height={64} 

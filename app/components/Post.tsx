@@ -17,7 +17,7 @@ export default function Post({ avatar, name, postTitle, id, CreatedAt }: PostPro
     const localDateString = date.toLocaleString(); //use browser timezone
 
     return (
-        <div className="bg-gray-200 my-8 p-8 rounded-lg shadow">
+        <div className="singlePost">
             <div className="flex items-center gap-2 mb-4">
                 <Image
                     src={avatar || '/default-avatar.png'}
@@ -31,9 +31,9 @@ export default function Post({ avatar, name, postTitle, id, CreatedAt }: PostPro
                 <p className="text-sm text-black">{localDateString}</p>
             </div>
             <div className="text-gray-600">{postTitle}</div>
-            <Link href={`/post/${id}`} passHref>
+            {/* <Link href={`/post/${id}`}>
                 <p className="text-sm font-bold text-gray-700">Comments</p>
-            </Link>
+            </Link> */}
         </div>
     );
 }

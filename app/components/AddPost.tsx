@@ -45,7 +45,7 @@ export default function CreatePost() {
     };
 
     return (
-        <form onSubmit={submitPost} className="bg-gray-200 my-8 p-8 rounded-md">
+        <form onSubmit={submitPost} className="addPost">
             <div className="flex flex-col my-4">
                 <label htmlFor="title" className="sr-only">Title</label>
                 <textarea
@@ -65,7 +65,7 @@ export default function CreatePost() {
                     className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-50 cursor-pointer"
                     type="submit"
                 >
-                    Post That Poop
+                    Post Your Thought
                 </button>
             </div>
         </form>

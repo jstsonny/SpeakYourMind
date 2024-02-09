@@ -49,7 +49,6 @@ body {
   .btn {
     font-size: 8px; /* Smaller font size */
     padding: 8px 20px; /* Slightly smaller padding */
-    border-radius: 40px; /* Adjusted border-radius for a smaller form factor */
     /* You might also want to adjust other properties to make the button look better on smaller screens */
   }
 
@@ -57,21 +56,6 @@ body {
     font-size: 20px; /* Smaller font size for the site name */
     /* Adjust other properties as needed to ensure the site name looks good on small screens */
   }
-}
-
-.postformbox{
-  padding: 1rem; /* p-4 equivalent */
-  font-size: 1.125rem; /* text-lg equivalent */
-  border-radius: 0.5rem; /* rounded-md equivalent */
-  background-color: #ffffff; /* bg-gray-200 equivalent */
-  border: 1px solid #ffffff; /* Adds a light border similar to Tailwind's default */
-  transition: border-color 0.2s; /* Smooth transition for border color change */
-}
-
-.postformbox:focus{
-  border-color: #000000;
-  border: 1px solid rgba(140, 140, 140, 0.683);
-  outline: none;
 }
 
 .SiteName
@@ -89,11 +73,8 @@ font-size: 10px;
 color: #fff;
 background: linear-gradient(90deg, #000000 0%, #858585 100%);
 padding: 8px 20px;
-border: solid #4a4a4a 2px;
-box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-border-radius: 50px;
-transition : 321ms;
-transform: translateY(0);
+border: solid #5c5c5c 2px;
+border-radius: 10px;
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -105,5 +86,53 @@ transition : 321ms;
 padding: 8px 20px;
 background: linear-gradient(90deg, #000000 0%, #858585 100%);
 color: #edf6ff;
-border: solid 2px #d9d9d9;
+border: solid 2px #000000;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.singlePost{
+  background-color: #e2e8f0; /* This is a common approximation for Tailwind's gray-200 */
+  margin-top: 2rem; /* Adjust based on your project's base spacing unit */
+  margin-bottom: 2rem; /* Adjust based on your project's base spacing unit */
+  padding: 2rem; /* Adjust based on your project's base spacing unit */
+  border-radius: 0.5rem; /* This is an approximation for 'rounded-lg' */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* A general shadow effect */
+}
+
+.singlePost:hover{
+  transition: 0.3s ease;
+  transform: scale(1.03);
+  border: solid 1px black;
+}
+
+.addPost{
+  background-color: #e2e8f0; /* This is a common approximation for Tailwind's gray-200 */
+  margin-top: 2rem; /* Adjust based on your project's base spacing unit */
+  margin-bottom: 2rem; /* Adjust based on your project's base spacing unit */
+  padding: 2rem; /* Adjust based on your project's base spacing unit */
+  border-radius: 0.5rem; /* This is an approximation for 'rounded-lg' */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* A general shadow effect */
+}
+
+
+.postformbox{
+  padding: 1rem; /* p-4 equivalent */
+  font-size: 1.125rem; /* text-lg equivalent */
+  border-radius: 0.5rem; /* rounded-md equivalent */
+  background-color: #ffffff; /* bg-gray-200 equivalent */
+  border: 1px solid #ffffff; /* Adds a light border similar to Tailwind's default */
+  transition: border-color 0.2s; /* Smooth transition for border color change */
+}
+
+.postformbox:focus{
+  border-color: #000000;
+  border: 1px solid rgba(140, 140, 140, 0.683);
+  outline: none;
 }

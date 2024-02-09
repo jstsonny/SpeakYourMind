@@ -9,7 +9,7 @@ export default async function Nav(){
     const session = await getServerSession(authOptions)
     console.log(session)
     return(
-        <nav className="flex justify-between items-center py-8">
+        <nav className="navbar">
             <Link href={"/"}>
                 <h1 className="SiteName">SpeakYourMind</h1>
             </Link>
