@@ -45,6 +45,20 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .btn {
+    font-size: 10px; /* Smaller font size */
+    padding: 8px 20px; /* Slightly smaller padding */
+    border-radius: 40px; /* Adjusted border-radius for a smaller form factor */
+    /* You might also want to adjust other properties to make the button look better on smaller screens */
+  }
+
+  .SiteName {
+    font-size: 20px; /* Smaller font size for the site name */
+    /* Adjust other properties as needed to ensure the site name looks good on small screens */
+  }
+}
+
 .postformbox{
   padding: 1rem; /* p-4 equivalent */
   font-size: 1.125rem; /* text-lg equivalent */
